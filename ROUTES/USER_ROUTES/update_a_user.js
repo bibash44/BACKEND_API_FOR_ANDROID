@@ -9,6 +9,7 @@ var imageName = '';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
+
 app.use(cors());
 
 
@@ -18,8 +19,10 @@ var updateUser = function (req, res) {
     var fullname = req.body.fullname;
     var email = req.body.email;
     var phone = req.body.phone;
-    var uid = req.body.id;
+    var uid = req.body._id;
     var image = req.body.image
+
+    console.log(req.body)
 
     user.findById(uid).then(function (UserData) {
         imageName = UserData.image;
@@ -61,7 +64,6 @@ var updateUser = function (req, res) {
             updated: false
         }, null, 3));
     })
-
 }
 
 module.exports = updateUser
