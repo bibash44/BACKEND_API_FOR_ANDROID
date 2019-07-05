@@ -5,6 +5,25 @@ const cors = require('cors');
 const { ObjectId } = require('mongodb')
 var nodemailer = require('nodemailer');
 
+var d = new Date();
+var am_pm = 'AM';
+var year = d.getFullYear();
+var month = d.getMonth() + 1;
+var day = d.getDate();
+
+var hour = d.getHours();
+var minutes = d.getMinutes();
+var seconds = d.getSeconds();
+
+if (hour > 12) {
+    am_pm = 'PM'
+}
+
+var fullDate = year + '/' + month + '/' + day;
+var fullTime = hour + ':' + minutes + ':' + seconds + ' ' + am_pm;
+
+var fullDateandTime = fullDate + ' at ' + fullTime;
+
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     requireTLS:true,
@@ -30,15 +49,13 @@ var BookAFood = function (req, res) {
     var foodImage = req.body.food_image;
     var foodPrice = req.body.food_price;
 
-    var bookingTime = req.body.booking_time;
+    var bookingTime = fullDateandTime;
 
     var userId = req.body.user_id;
     var userName = req.body.user_name;
     var userImage = req.body.user_image;
     var userEmail = req.body.user_email
     var userPhone = req.body.user_phone;
-
-    console.log(req.body);
 
     var mailOptions = {
         from: 'bibashkatel4@gmail.com',
@@ -83,8 +100,9 @@ var BookAFood = function (req, res) {
 
         booking_time: bookingTime
 
-        // booking time
     })
+
+    console.log(req.body)
 
 
 
