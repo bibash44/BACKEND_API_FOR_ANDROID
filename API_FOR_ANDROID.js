@@ -16,23 +16,28 @@ const auth = require('./AUTH/auth')
 app.use("/upload/images/users", express.static("upload/images/users"))
 
 
-/* route list for android app */
+/* url list for android app */
 var registerUser = require('./ROUTES/ROUTES_FOR_ANDROID_APP/register_user');
 var loginUser= require('./ROUTES/ROUTES_FOR_ANDROID_APP/login_user')
 var updadteAUser=require('./ROUTES/ROUTES_FOR_ANDROID_APP/update_a_user');
 
-/* route list for movies*/
+/* url list for movies*/
 var getNowShowingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_now_showing_movies')
 var getUpComingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_up_coming_movies_details')
 var bookAMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/book_a_movie')
 var getUserBookedMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_movies');
 var cancelAMovieBooking=require('./ROUTES/ROUTES_FOR_ANDROID_APP/cancel_a_booked_movie')
 
-/*routes for food */
+/*url for food */
 var getAllFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_all_food');
 var bookAFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/book_a_food')
 var getBookedFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_food');
 var cancelAFoodBooking=require('./ROUTES/ROUTES_FOR_ANDROID_APP/cancel_a_booked_food')
+
+/* feedback routes */
+
+var getMovieFeedback= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_individual_movie_feedback');
+var feedbackOfAmovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/feedback_of_movie')
 
 /* user routes*/
 app.post('/insert_user', registerUser);
@@ -51,6 +56,11 @@ app.get('/get_all_foods', getAllFood)
 app.post('/book_a_food', bookAFood);
 app.post('/get_user_booked_food', getBookedFood);
 app.post('/cancel_a_food_booking', cancelAFoodBooking);
+
+
+/* feedback routes */
+app.post('/get_movie_feedback',getMovieFeedback)
+app.post('/feedback_a_movie',feedbackOfAmovie)
 
 
 /* UPLOAD IMAGE FOR user*/
