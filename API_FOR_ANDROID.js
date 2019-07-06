@@ -23,7 +23,9 @@ var updadteAUser=require('./ROUTES/ROUTES_FOR_ANDROID_APP/update_a_user');
 
 /* route list for movies*/
 var getNowShowingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_now_showing_movies')
+var getUpComingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_up_coming_movies_details')
 var bookAMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/book_a_movie')
+var getUserBookedMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_movies');
 
 /*routes for food */
 var getAllFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_all_food');
@@ -38,7 +40,9 @@ app.put('/update_user', updadteAUser);
 
 /*movie routes */
 app.get('/get_now_showing_movies',getNowShowingMovies)
+app.get('/get_up_coming_movies',getUpComingMovies)
 app.post('/book_a_movie', bookAMovie)
+app.post('/get_user_booked_movie',getUserBookedMovie)
 
 /*food routes */
 app.get('/get_all_foods', getAllFood)
