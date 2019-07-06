@@ -25,6 +25,9 @@ var updadteAUser=require('./ROUTES/ROUTES_FOR_ANDROID_APP/update_a_user');
 var getAllFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_all_food');
 var bookAFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/book_a_food')
 var getBookedFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_food');
+var cancelAFoodBooking=require('./ROUTES/ROUTES_FOR_ANDROID_APP/cancel_a_booked_food')
+var getNowShowingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_now_showing_movies')
+
 /* user routes*/
 app.post('/insert_user', registerUser);
 app.post('/login_user', loginUser);
@@ -35,6 +38,8 @@ app.put('/update_user', updadteAUser);
 app.get('/get_all_foods', getAllFood)
 app.post('/book_a_food', bookAFood);
 app.post('/get_user_booked_food', getBookedFood);
+app.post('/cancel_a_food_booking', cancelAFoodBooking);
+app.get('/get_now_showing_movies',getNowShowingMovies)
 
 /* UPLOAD IMAGE FOR user*/
 app.use("/upload/images/users", express.static("upload/images/users"))
