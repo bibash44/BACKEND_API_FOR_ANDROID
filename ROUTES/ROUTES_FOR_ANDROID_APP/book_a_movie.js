@@ -5,6 +5,25 @@ const cors = require('cors');
 const { ObjectId } = require('mongodb')
 var nodemailer = require('nodemailer');
 
+var d = new Date();
+var am_pm = 'AM';
+var year = d.getFullYear();
+var month = d.getMonth() + 1;
+var day = d.getDate();
+
+var hour = d.getHours();
+var minutes = d.getMinutes();
+var seconds = d.getSeconds();
+
+if (hour > 12) {
+    am_pm = 'PM'
+}
+
+var fullDate = year + '/' + month + '/' + day;
+var fullTime = hour + ':' + minutes + ':' + seconds + ' ' + am_pm;
+
+var fullDateandTime = fullDate + ' at ' + fullTime;
+
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -36,7 +55,7 @@ var BookAMovie = function (req, res) {
 
     var movieSeats = req.body.movie_seats;
 
-    var bookingTime = req.body.booking_time;
+    var bookingTime = fullDateandTime;
 
     var userId = req.body.user_id;
     var userName = req.body.user_name;
@@ -104,9 +123,15 @@ var BookAMovie = function (req, res) {
         }
     }).then(function () {
         console.log('seats decreased')
-    }).catch(function () {
-        console.log('failed to decrease the seats')
+    }).catch(function (error) {
+        console.log(error)
     })
+
+    // movie.findOne({_id:new ObjectId(movieId)}).then(function(data){
+    //     console.log(data)
+    // }).catch(function(){
+    //     console.log('error')
+    // })
 
 
     // Booking a movie
