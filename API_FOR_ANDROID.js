@@ -26,6 +26,7 @@ var getNowShowingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_now_showing
 var getUpComingMovies=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_up_coming_movies_details')
 var bookAMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/book_a_movie')
 var getUserBookedMovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_movies');
+var cancelAMovieBooking=require('./ROUTES/ROUTES_FOR_ANDROID_APP/cancel_a_booked_movie')
 
 /*routes for food */
 var getAllFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_all_food');
@@ -43,6 +44,7 @@ app.get('/get_now_showing_movies',getNowShowingMovies)
 app.get('/get_up_coming_movies',getUpComingMovies)
 app.post('/book_a_movie', bookAMovie)
 app.post('/get_user_booked_movie',getUserBookedMovie)
+app.post('/cancel_a_booked_movie',cancelAMovieBooking)
 
 /*food routes */
 app.get('/get_all_foods', getAllFood)
