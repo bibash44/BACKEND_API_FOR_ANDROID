@@ -14,6 +14,9 @@ app.use(cors());
 
 
 const user = require('../../MODELS/user');
+const feedbackModel = require('../../MODELS/feedback');
+const movie_booking = require('../../MODELS/movie_booking');
+const food_booking = require('../../MODELS/food_booking');
 
 var updateUser = function (req, res) {
     var fullname = req.body.fullname;
@@ -43,6 +46,46 @@ var updateUser = function (req, res) {
                 }
             })
         }
+    })
+
+    feedbackModel.updateMany({user_id:uid},{
+        $set:{
+            user_name: fullname,
+            user_email: email,
+            user_phone: phone,
+            user_image: image
+        }
+    }).then(function(){
+        console.log('feedback model also updated')
+    }).catch(function(){
+        console.log('Failed to update feedback model')
+    })
+
+
+    movie_booking.updateMany({user_id:uid},{
+        $set:{
+            user_name: fullname,
+            user_email: email,
+            user_phone: phone,
+            user_image: image
+        }
+    }).then(function(){
+        console.log('Movie booking model also updated')
+    }).catch(function(){
+        console.log('Failed to update movie booked model')
+    })
+
+    food_booking.updateMany({user_id:uid},{
+        $set:{
+            user_name: fullname,
+            user_email: email,
+            user_phone: phone,
+            user_image: image
+        }
+    }).then(function(){
+        console.log('Foodd booking model also updated')
+    }).catch(function(){
+        console.log('Failed to update food booked model')
     })
 
 

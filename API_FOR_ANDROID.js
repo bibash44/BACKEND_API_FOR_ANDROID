@@ -92,7 +92,7 @@ var upload = multer({
     storage: storage,
     fileFilter: imageFileFilter,
     limits: {
-        fileSize: 10000000
+        fileSize: 1000000000
     }
 });
 
