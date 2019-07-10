@@ -14,7 +14,7 @@ var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
-    requireTLS:true,
+    requireTLS: true,
     auth: {
         user: 'bibashkatel4@gmail.com',
         pass: 'tejkmlnlqekzbfyq'
@@ -59,6 +59,8 @@ var registerUser = function (req, res) {
     user.findOne({
         email: Useremail
     }).then(function (result) {
+
+        console.log(result)
 
         if (result == null) {
 

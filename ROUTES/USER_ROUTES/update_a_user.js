@@ -19,7 +19,7 @@ var updateUser = function (req, res) {
     var fullname = req.body.fullname;
     var email = req.body.email;
     var phone = req.body.phone;
-    var uid = req.body.id;
+    var uid = req.body._id;
     var image = req.body.image
 
     console.log(req.body)

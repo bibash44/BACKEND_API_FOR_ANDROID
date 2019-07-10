@@ -33,14 +33,19 @@ var cancelAMovieBooking = function (req, res) {
         console.log('failed to cancel movie')
     })
 
-    movie.updateOne({ _id: new ObjectId(movie_id) }, {
-        $set: {
-            total_seats: +1
-        }
-    }).then(function () {
-        console.log('seats increased')
+    movie.findById(movie_id).then(function (dataofmovie) {
+
+        movie.updateOne({ _id: new ObjectId(movie_id) }, {
+            $set: {
+                total_seats: dataofmovie.total_seats+1
+            }
+        }).then(function () {
+            console.log('seats increased')
+        }).catch(function () {
+            console.log('failed to increase the seats')
+        })
     }).catch(function () {
-        console.log('failed to increase the seats')
+        console.log('cannot find movie from movie table while booking')
     })
 }
 
