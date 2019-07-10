@@ -15,7 +15,7 @@ var sortById= {_id: -1}
 var selectIndividualMovieFeedback= function(req, res){
     mid= req.body.movie_id;
 
-    console.log("request"+req.body)
+    console.log(req.body)
 
     feedback.find({
         movie_id:mid

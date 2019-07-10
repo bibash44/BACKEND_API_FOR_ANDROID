@@ -35,9 +35,12 @@ var getBookedFood= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_user_booked_food
 var cancelAFoodBooking=require('./ROUTES/ROUTES_FOR_ANDROID_APP/cancel_a_booked_food')
 
 /* feedback routes */
-
 var getMovieFeedback= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_individual_movie_feedback');
 var feedbackOfAmovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/feedback_of_movie')
+
+/* rating routes */
+var getMovierating= require('./ROUTES/ROUTES_FOR_ANDROID_APP/get_individual_movie_rating');
+var ratingOfAmovie=require('./ROUTES/ROUTES_FOR_ANDROID_APP/rate_a_movie')
 
 /* user routes*/
 app.post('/insert_user', registerUser);
@@ -58,9 +61,14 @@ app.post('/get_user_booked_food', getBookedFood);
 app.post('/cancel_a_food_booking', cancelAFoodBooking);
 
 
-/* feedback routes */
+/* rating routes */
 app.post('/get_movie_feedback',getMovieFeedback)
 app.post('/feedback_a_movie',feedbackOfAmovie)
+
+
+/* feedback routes */
+app.post('/get_movie_rating',getMovierating)
+app.post('/rating_a_movie',ratingOfAmovie)
 
 
 /* UPLOAD IMAGE FOR user*/
