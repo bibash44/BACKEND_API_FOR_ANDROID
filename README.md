@@ -1,15 +1,15 @@
 # Your Project Title Here
-Name: Your Full Name
+Name: BIBASH KATTEL
 
-CollegeID: Your College ID
+CollegeID: 9635588
 
-Batch: Jan19A/B/C/D?
-
-Brief description of the domain of your project!
-
-## List of Main Features
-List out 3/4 main technical features of your project
+Batch: Jan19D
 
 ## API Documentation
-List out your main APIs and its sample input and output!
+Backend is coded in node js
+
+All the routes for ANDROID APP are under a ROUTES folder with a subfolder name ROUTES_FOR_ANDROID
+
+ALL the url for API are under the file called API_FOR_ANDROID.js
+
 
