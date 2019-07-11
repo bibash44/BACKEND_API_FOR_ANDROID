@@ -35,7 +35,7 @@ var registerUser = function (req, res) {
     var mailOptions = {
         from: 'bibashkatel4@gmail.com',
         to: Useremail,
-        subject: 'Booking Made ',
+        subject: 'Account Created ',
         text: '',
         html:
             '<div class="container-fluid main-container">' +
